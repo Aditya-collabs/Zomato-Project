@@ -1,0 +1,254 @@
+.home-container {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    background-color: #000;
+}
+
+.video-section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.overlay-content {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* right-side icon stack similar to TikTok/Instagram style */
+.overlay-icons {
+    position: absolute;
+    right: 16px;
+    top: 62%; 
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* reduced spacing */
+    z-index: 5;
+}
+
+.icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    text-shadow: 0 0 4px rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+.icon-group span {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.icon-circle {
+    background: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+/* active states */
+.icon-circle.liked {
+    background: rgba(255,0,0,0.6);
+    color: #fff;
+}
+
+.icon-circle.saved {
+    background: rgba(0,123,255,0.6);
+    color: #fff;
+}
+
+/* Inline bottom navigation inside video frame */
+.inline-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    z-index: 6;
+}
+
+.inline-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    gap: 2px;
+}
+
+.inline-nav .nav-item svg {
+    font-size: 24px;
+}
+
+.video-description {
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.visit-store-btn {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #E23744;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin-left: 0;
+}
+
+.visit-store-btn:hover {
+    background-color: #c72c3a;
+}
+
+.loading-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Responsive Design for Desktop/Tablet */
+@media (min-width: 500px) {
+    .home-container {
+        background-color: #111;
+        /* Slightly lighter black for background */
+    }
+
+    .video-section {
+        max-width: 450px;
+        /* Mobile app width */
+        margin: 0 auto;
+        /* Center the feed */
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Optional: Hide scrollbar for cleaner look on desktop */
+    .home-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .home-container::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    .home-container::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Ensure it stays on top */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: var(--bg);
+    width: 100%;
+    max-width: 500px;
+    height: 80vh;
+    /* Occupy 80% of viewport height */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease-in-out;
+}
+
+/* Close Button Style inside Profile Header */
+.close-profile-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.2s;
+}
+
+.close-profile-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,157 @@
+.profile-container {
+    min-height: 100vh;
+    background-color: var(--bg);
+    /* Make the container itself have rounded top corners on larger screens if it's treated like a card/modal */
+    /* But based on the request "at the top make the points curvey", I will apply it to the header */
+}
+
+/* Header Section */
+.profile-header {
+    background-color: var(--card);
+    /* Changed from primary to card to match page theme */
+    color: var(--text);
+    /* Changed from primary-fg */
+    padding: 32px 24px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: var(--shadow-md);
+    /* Softer shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.profile-info {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    /* Changed from translucent white */
+    overflow: hidden;
+    /* Ensure image stays circular */
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+/* Simplified "buttons" - just text containers now */
+.profile-action-btn {
+    background-color: var(--bg);
+    /* or transparent */
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+/* Stats Section */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    /* Changed from translucent white */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.7;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Video Grid Section */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    /* Minimal gap */
+    padding: 0;
+    background-color: transparent;
+    /* Changed from var(--bg) to avoid lines if bg difference exists */
+    margin-top: 16px;
+    /* Reduced gap between header and grid */
+}
+
+.grid-item {
+    aspect-ratio: 9/16;
+    background-color: #000;
+    /* Black background for videos */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.grid-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover .grid-video {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .profile-container {
+        max-width: 500px;
+        /* Mobile width on desktop */
+        margin: 20px auto;
+        border-radius: 40px;
+        /* Curvy all around on desktop */
+        overflow: hidden;
+        /* Clip content to radius */
+        border: 8px solid #000;
+        /* Phone frame look? Or just border */
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        height: calc(100vh - 40px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        /* Hide scrollbar */
+    }
+
+    .profile-header {
+        border-radius: 0 0 40px 40px;
+        /* Reset top radius if container has it, keep bottom */
+    }
+}
