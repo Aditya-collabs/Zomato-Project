@@ -13,7 +13,7 @@ const Home = () => {
     // handle user interaction for like/save
     const handleLike = async (foodId, e) => {
         if (e) e.stopPropagation();
-        try {
+        try { 
             const res = await axios.post(
                 'http://localhost:5000/api/food/like',
                 { foodId },
