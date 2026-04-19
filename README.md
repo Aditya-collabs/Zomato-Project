@@ -1,6 +1,6 @@
-# Zomato Clone Project
+# UrbanEats
 
-A full-stack, scalable online food delivery web application inspired by Zomato. This project is built using the MERN stack (MongoDB, Express.js, React, Node.js) and includes features like user authentication, image uploading, and a RESTful API backend structure.
+A full-stack, scalable online food delivery web application. This project is built using the MERN stack (MongoDB, Express.js, React, Node.js) and includes features like user authentication, image uploading, and a RESTful API backend structure.
 
 ## 🚀 Tech Stack
 
@@ -22,7 +22,7 @@ A full-stack, scalable online food delivery web application inspired by Zomato. 
 ## 📂 Project Structure
 
 ```
-Zomato Project/
+UrbanEats/
 │
 ├── backend/                  # Server-side code
 │   ├── .env                  # Environment variables
@@ -65,7 +65,7 @@ Follow these steps to set up the project locally on your machine.
 ### 1. Clone the repository
 ```bash
 git clone <your-repository-url>
-cd "Zomato Project"
+cd "UrbanEats"
 ```
 
 ### 2. Setup the Backend
